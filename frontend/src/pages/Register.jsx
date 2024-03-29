@@ -1,0 +1,87 @@
+import { useState } from "react"
+
+export default function Register() {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
+
+  const registerUser = (e) => {
+    e.preventDefault()
+  }
+
+  return (
+    
+    <div className="container-xxl">
+      <div className="authentication-wrapper authentication-basic container-p-y">
+        <div className="authentication-inner">
+          <div className="card">
+            <div className="card-body">
+              <div className="app-brand justify-content-center">
+                <a href="index.html" className="app-brand-link gap-2">
+                  
+                  <span className="app-brand-text demo text-body fw-bolder">neuron</span>
+                </a>
+              </div>
+
+              <form id="formAuthentication" className="mb-3" onSubmit={registerUser}>
+                
+                <div className="mb-3 text-start">
+                  <label htmlFor="name" className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your Name"
+                    value={data.name}
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
+                    autoFocus
+                  />
+                </div>
+                <div className="mb-3 text-start">
+                  <label htmlFor="email" className="form-label" >Email</label>
+                  <input type="text" className="form-control" id="email" name="email" placeholder="Enter your email" value={data.email}
+                    onChange={(e) => setData({ ...data, email: e.target.value })}/>
+                </div>
+                <div className="mb-3 form-password-toggle text-start">
+                  <label className="form-label" htmlFor="password">Password</label>
+                  <div className="input-group input-group-merge">
+                    <input
+                      type="password"
+                      id="password"
+                      className="form-control"
+                      name="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                      value={data.password}
+                      onChange={(e) => setData({ ...data, password: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-3">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                    <label className="form-check-label" htmlFor="terms-conditions">I agree to 
+                      <a href="javascript:void(0);"> privacy policy & terms</a>
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary d-grid w-100">Sign up</button>
+              </form>
+
+              <p className="text-center">
+                <span>Already have an account?</span>
+                <a href="auth-login-basic.html">
+                  <span> Sign in instead</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
