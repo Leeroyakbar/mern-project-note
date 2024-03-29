@@ -1,4 +1,5 @@
 const User = require ("../models/user");
+const {hashPassword, comparePassword} = require("../helpers/auth");
 
 const test = (req, res) => {
   res.json({ msg: "test is working" });
@@ -30,10 +31,12 @@ const registerUser = async (req, res) => {
             })
         }
 
+        const hashedPassword = await hashPassword(password)
+
         const user = await User.create({
             name,
             email,
-            password
+            password: hashedPassword
         })
 
         return res.json({user})
@@ -42,7 +45,26 @@ const registerUser = async (req, res) => {
     }
 };
 
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({ error: "No user found" });
+    }
+
+    const match = await comparePassword(password, user.password);
+    if (match) {
+      return res.json({ msg: "Login Success"});
+    }
+    return res.json({ error: "Wrong password" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   test,
   registerUser,
+  loginUser,
 };

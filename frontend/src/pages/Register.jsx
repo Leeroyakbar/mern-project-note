@@ -25,7 +25,7 @@ export default function Register() {
         toast.error(data.error);
       } else {
         setData({});
-        toast.success("Login Successful. Welcome!");
+        toast.success("Register Successful. Welcome!");
         navigate("/login");
       }
     } catch (error) {
@@ -100,24 +100,6 @@ export default function Register() {
                         setData({ ...data, password: e.target.value })
                       }
                     />
-                  </div>
-                </div>
-
-                <div className="mb-3">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="terms-conditions"
-                      name="terms"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="terms-conditions"
-                    >
-                      I agree to
-                      <a href="javascript:void(0);"> privacy policy & terms</a>
-                    </label>
                   </div>
                 </div>
                 <button type="submit" className="btn btn-primary d-grid w-100">
