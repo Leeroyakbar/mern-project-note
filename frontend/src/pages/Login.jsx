@@ -39,11 +39,11 @@ export default function Login() {
           <div className="card">
             <div className="card-body">
               <div className="app-brand justify-content-center">
-                <a href="index.html" className="app-brand-link gap-2">
+                <Link to="/">
                   <span className="app-brand-text demo text-body fw-bolder">
                     neuron notes
                   </span>
-                </a>
+                </Link>
               </div>
 
               <form
