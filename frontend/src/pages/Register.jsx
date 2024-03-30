@@ -42,7 +42,7 @@ export default function Register() {
               <div className="app-brand justify-content-center">
                 <a href="index.html" className="app-brand-link gap-2">
                   <span className="app-brand-text demo text-body fw-bolder">
-                    neuron
+                    neuron notes
                   </span>
                 </a>
               </div>
