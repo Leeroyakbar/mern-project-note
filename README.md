@@ -15,7 +15,8 @@ Features :
 - [x] Update Note
 - [x] Delete Note
 - [x] Register
-- [ ] Login
+- [x] Login
+- [ ] Security
 
 ## Note
 - title
