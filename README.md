@@ -18,6 +18,11 @@ Features :
 - [x] Login
 - [ ] Security
 
+## User
+- name
+- email
+- password
+
 ## Note
 - title
 - Content
